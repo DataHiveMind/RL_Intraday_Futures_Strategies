@@ -1,0 +1,43 @@
+# configs/data/ingestion.yaml
+
+data_sources:
+  provider: yfinance
+  tickers:
+    - SPY # S&P 500 ETF proxy for ES futures
+    - QQQ # Nasdaq-100 ETF proxy for NQ futures
+    - DIA # Dow Jones ETF proxy for YM futures
+    - IWM # Russell 2000 ETF proxy for RTY futures
+    - GLD # Gold ETF proxy for GC futures
+    - SLV # Silver ETF proxy for SI futures
+    - USO # Crude Oil ETF proxy for CL futures
+    - IEF # 10-Year Treasury ETF proxy for ZN futures
+    - TLT # 20-Year Treasury ETF proxy for ZB futures
+
+parameters:
+  period: 5d # rolling window of 5 days
+  interval: 1m # intraday bars (1-minute resolution)
+  auto_adjust: true # adjust for splits/dividends
+  prepost: false # exclude pre/post-market data
+  threads: 4 # parallel downloads
+
+storage:
+  backend: filesystem
+  path: data/store # local storage directory for ingested data
+  library: "futures_intraday"
+  write_mode: append
+
+preprocessing:
+  resample: 1m # ensure uniform 1-minute bars
+  fill_missing: ffill # forward-fill missing values
+  fill_missing: bfill # backward-fill missing values
+  normalize: true # z-score normalization per ticker
+  features:
+    - open
+    - high
+    - low
+    - close
+    - volume
+
+logging:
+  level: INFO
+  output: logs/ingestion.log

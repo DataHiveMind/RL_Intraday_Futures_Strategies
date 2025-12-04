@@ -1,0 +1,66 @@
+version: 2.1
+
+executors:
+  python-executor:
+    docker:
+      - image: cimg/python:3.11
+    working_directory: ~/repo
+
+jobs:
+  install-deps:
+    executor: python-executor
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            python -m venv .venv
+            . .venv/bin/activate
+            pip install --upgrade pip
+            pip install -r requirements.txt
+
+  lint:
+    executor: python-executor
+    steps:
+      - checkout
+      - run:
+          name: Run linter
+          command: |
+            . .venv/bin/activate
+            pip install ruff
+            ruff check src tests
+
+  test:
+    executor: python-executor
+    steps:
+      - checkout
+      - run:
+          name: Run tests
+          command: |
+            . .venv/bin/activate
+            pip install pytest
+            pytest -q
+
+  train-smoke:
+    executor: python-executor
+    steps:
+      - checkout
+      - run:
+          name: Smoke test training loop
+          command: |
+            . .venv/bin/activate
+            python src/training/train.py --config configs/experiment/dqn.yaml --episodes 5
+
+workflows:
+  build-and-test:
+    jobs:
+      - install-deps
+      - lint:
+          requires:
+            - install-deps
+      - test:
+          requires:
+            - install-deps
+      - train-smoke:
+          requires:
+            - test

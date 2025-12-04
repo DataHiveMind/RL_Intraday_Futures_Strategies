@@ -1,0 +1,48 @@
+
+[project]
+name = "rl-intraday-futures-strategies"
+version = "0.1.0"
+description = "Reinforcement-learning intraday futures strategies and backtesting utilities"
+readme = "README.md"
+
+requires-python = ">=3.8"
+
+dependencies = [
+	"PyYAML>=6.0",
+	"numpy>=1.24",
+	"pandas>=1.5",
+	"scipy>=1.10",
+	"scikit-learn>=1.2",
+	"matplotlib>=3.7",
+	"seaborn>=0.12",
+]
+
+[project.optional-dependencies]
+rl = [
+	"gymnasium>=0.29",
+	"stable-baselines3>=2.0",
+	"torch>=2.0",
+]
+
+ml = [
+	"xgboost>=1.7",
+	"lightgbm>=4.0",
+]
+
+viz = [
+	"plotly>=5.15",
+	"bokeh>=3.0",
+]
+
+dev = [
+	"pytest>=7.0",
+	"pytest-cov>=4.0",
+	"black>=24.1",
+	"flake8>=6.0",
+	"isort>=5.12",
+]
+
+[build-system]
+requires = ["setuptools>=61.0","wheel"]
+build-backend = "setuptools.build_meta"
+

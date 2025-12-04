@@ -1,0 +1,38 @@
+name: rl-intraday-futures
+channels:
+  - conda-forge
+  - pytorch
+  - defaults
+
+dependencies:
+  - python=3.10
+  - pip
+  - numpy>=1.24
+  - pandas>=1.5
+  - scipy>=1.10
+  - scikit-learn>=1.2
+  - matplotlib>=3.7
+  - seaborn>=0.12
+  - numba>=0.56
+  - xgboost>=1.7
+  - lightgbm>=4.0
+
+  # Many RL / DL packages are best installed via pip or the official channels.
+  - pip:
+      - PyYAML>=6.0
+      - torch>=2.0
+      - gymnasium>=0.29
+      - stable-baselines3>=2.0
+      - plotly>=5.15
+      - pytest>=7.0
+      - pytest-cov>=4.0
+      - black>=24.1
+      - flake8>=6.0
+      - isort>=5.12
+# Notes:
+# - This environment file installs most numeric and data packages from conda-forge.
+# - `torch` is installed via pip here for simplicity. For GPU-enabled installs, prefer
+#   the official PyTorch install commands. Example (CUDA 11.8):
+#   conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+# - If you prefer a pure conda approach, replace pip packages with conda equivalents
+#   and remove the `pip:` section.

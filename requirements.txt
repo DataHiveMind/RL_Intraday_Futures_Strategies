@@ -1,0 +1,30 @@
+# Core runtime dependencies
+PyYAML>=6.0
+numpy>=1.24
+pandas>=1.5
+scipy>=1.10
+scikit-learn>=1.2
+
+# Reinforcement learning / Deep learning
+torch>=2.0
+gymnasium>=0.29
+stable-baselines3>=2.0
+
+# Gradient-boosted trees and related
+xgboost>=1.7
+lightgbm>=4.0
+
+# Visualization
+matplotlib>=3.7
+seaborn>=0.12
+plotly>=5.15
+
+# Performance / numerics
+numba>=0.56
+
+# Testing / development
+pytest>=7.0
+pytest-cov>=4.0
+black>=24.1
+flake8>=6.0
+isort>=5.12

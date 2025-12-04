@@ -1,0 +1,17 @@
+# configs/experiment/dqn.yaml
+
+inherit: base.yaml
+
+agent:
+  type: DQN
+  hidden: [128, 128]
+  gamma: 0.99
+  lr: 0.0005
+  epsilon_start: 1.0
+  epsilon_end: 0.05
+  epsilon_decay: 0.995
+  replay_buffer: 100000
+  batch_size: 64
+training:
+  episodes: 1000
+  target_update: 50

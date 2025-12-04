@@ -1,0 +1,10 @@
+# configs/env/transaction_costs.yaml
+
+costs:
+  commission_per_trade: 0.0001   # 1 basis point
+  spread_proxy: high_low_ratio
+  slippage:
+    model: volume_impact
+    impact_factor: 0.0005
+fees:
+  exchange_fee: 0.00002

@@ -1,0 +1,13 @@
+# configs/experiment/base.yaml
+
+seed: 42
+episodes: 1000
+steps_per_episode: 500
+checkpoint:
+  dir: checkpoints/
+  frequency: 50
+early_stop:
+  patience: 20
+logging:
+  level: INFO
+  output: logs/train.log

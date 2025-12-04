@@ -1,0 +1,67 @@
+# configs/data/features.yaml
+
+features:
+  # Core OHLCV features
+  ohlcv:
+    include: true
+    columns: [open, high, low, close, volume]
+    normalization: zscore   # z-score normalization per ticker
+    fill_missing: ffill     # forward-fill missing values
+
+  # Price-based features
+  returns:
+    include: true
+    type: log               # log returns
+    window: [1, 5, 15]      # intraday horizons in minutes
+    normalization: none
+
+  volatility:
+    include: true
+    method: realized        # realized volatility
+    window: [5, 15, 30]     # rolling windows in minutes
+    normalization: minmax
+
+  # Order book proxies (derived from OHLCV since LOB not available in yfinance)
+  imbalance:
+    include: true
+    method: volume_ratio    # buy vs sell volume proxy
+    window: [5, 15]
+    normalization: zscore
+
+  microprice:
+    include: true
+    method: weighted_mid    # weighted mid-price proxy
+    normalization: none
+
+  # Trend & momentum indicators
+  moving_average:
+    include: true
+    windows: [5, 15, 30]    # intraday moving averages
+    normalization: none
+
+  rsi:
+    include: true
+    window: 14              # relative strength index
+    normalization: none
+
+  macd:
+    include: true
+    fast: 12
+    slow: 26
+    signal: 9
+    normalization: none
+
+  # Liquidity & turnover
+  turnover:
+    include: true
+    method: volume_price    # volume × price
+    normalization: zscore
+
+  spread_proxy:
+    include: true
+    method: high_low_ratio  # proxy for bid-ask spread
+    normalization: none
+
+logging:
+  level: INFO
+  output: logs/features.log

@@ -1,0 +1,15 @@
+# configs/experiment/sac.yaml
+
+inherit: base.yaml
+
+agent:
+  type: SAC
+  hidden: [256, 256]
+  gamma: 0.99
+  lr: 0.0003
+  alpha: 0.2
+  tau: 0.005
+  replay_buffer: 100000
+  batch_size: 128
+training:
+  episodes: 1000
