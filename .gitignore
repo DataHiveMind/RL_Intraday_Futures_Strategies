@@ -71,10 +71,6 @@ runs/
 models/
 
 
-# Reports and visualizations
-reports/
-visualizations/
-
 # System files
 .DS_Store
 Thumbs.db
