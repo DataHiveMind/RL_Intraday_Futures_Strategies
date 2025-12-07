@@ -1,6 +1,15 @@
 {
-    "circleci.persistedProjectSelection": [
-        "circleci/BLiyEWLkQ84kMS1P4nygsm/ETi8qSf3dvLcWeqd3Fckq9"
-    ],
-    "circleci.filters.branchFilter": "allBranches"
+    "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.ipynb_checkpoints": true
+    },
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+    }
 }

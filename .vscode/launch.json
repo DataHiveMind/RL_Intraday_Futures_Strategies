@@ -1,0 +1,19 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Run Pipeline",
+			"type": "python",
+			"request": "launch",
+			"program": "${workspaceFolder}/scripts/run_pipeline.py",
+			"console": "integratedTerminal"
+		},
+		{
+			"name": "Run Experiment",
+			"type": "python",
+			"request": "launch",
+			"program": "${workspaceFolder}/scripts/run_experiment.py",
+			"console": "integratedTerminal"
+		}
+	]
+}

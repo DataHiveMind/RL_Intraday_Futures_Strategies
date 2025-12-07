@@ -95,9 +95,11 @@ class DataIngester:
             interval=self.interval,
             auto_adjust=self.auto_adjust,
             prepost=self.prepost,
-            threads=self.threads,
             progress=False,
         )
+
+        if data is None or data.empty:
+            raise ValueError(f"No data fetched for tickers: {tickers}")
 
         # yfinance returns columns like Open, High, Low, Close, Volume (uppercase)
         # Convert to MultiIndex (Datetime, Ticker) if multiple tickers, else add ticker column
@@ -106,6 +108,8 @@ class DataIngester:
             data = data.reset_index().set_index(["Datetime", "ticker"])
         else:
             data = data.stack()
+            if isinstance(data, pd.Series):
+                data = data.to_frame()
             data.index.names = ["Datetime", "ticker"]
 
         data.columns = data.columns.str.lower()  # Normalize to lowercase

@@ -14,8 +14,8 @@ data_sources:
     - TLT # 20-Year Treasury ETF proxy for ZB futures
 
 parameters:
-  period: 5d # rolling window of 5 days
-  interval: 1m # intraday bars (1-minute resolution)
+  period: 12y # 12-year historical data window
+  interval: 1d # daily bars (for extended history; use 1m for recent intraday only)
   auto_adjust: true # adjust for splits/dividends
   prepost: false # exclude pre/post-market data
   threads: 4 # parallel downloads

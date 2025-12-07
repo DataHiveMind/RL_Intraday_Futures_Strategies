@@ -29,6 +29,8 @@ dependencies:
       - black>=24.1
       - flake8>=6.0
       - isort>=5.12
+      - arcticdb 
+      - yfinance
 # Notes:
 # - This environment file installs most numeric and data packages from conda-forge.
 # - `torch` is installed via pip here for simplicity. For GPU-enabled installs, prefer

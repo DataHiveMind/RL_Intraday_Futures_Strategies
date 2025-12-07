@@ -4,6 +4,7 @@ numpy>=1.24
 pandas>=1.5
 scipy>=1.10
 scikit-learn>=1.2
+yfinance
 
 # Reinforcement learning / Deep learning
 torch>=2.0
@@ -28,3 +29,10 @@ pytest-cov>=4.0
 black>=24.1
 flake8>=6.0
 isort>=5.12
+
+# Database
+acrticdb
+# Optional parquet engines: install these to enable Parquet read/write
+# (otherwise the code will fall back to CSV)
+pyarrow>=11.0.0
+fastparquet>=2023.12.0

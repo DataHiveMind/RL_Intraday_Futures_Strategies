@@ -1,0 +1,76 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C++ build artifacts
+*.exe
+*.out
+*.o
+*.obj
+*.gch
+*.a
+*.so
+*.dll
+*.dylib
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Data files
+data/
+financial_data/
+*.mdb
+*.csv
+*.h5
+*.parquet
+*.pkl
+*.npz
+*.npy
+
+# Environment files
+.env/
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+env_old/
+
+# VS Code settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+._*
+
+# Reports and generated HTML
+reports/
+*.html
+
+# Logs
+*.log
+logs/
+
+# Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Test cache
+.pytest_cache/
+.mypy_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Misc
+*.swp
+*.swo
+*.bak
+*.tmp
+*.old

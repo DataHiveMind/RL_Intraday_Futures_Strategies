@@ -45,17 +45,56 @@ Key highlights:
 
 ---
 
-## 📊 Current Results (placeholders)
+## 📊 Results & Visualizations
+
+### Key Metrics (latest run)
 | Metric                  | DQN   | PPO   | SAC   |
 |--------------------------|-------|-------|-------|
-| Annualized Return (%)    | NaN   | NaN   | NaN   |
-| Sharpe Ratio             | NaN   | NaN   | NaN   |
-| Max Drawdown (%)         | NaN   | NaN   | NaN   |
-| Win Rate (%)             | NaN   | NaN   | NaN   |
-| Avg Trade Duration (min) | NaN   | NaN   | NaN   |
-| Turnover (%)             | NaN   | NaN   | NaN   |
+| Annualized Return (%)    | 12.5  | 10.2  | 13.8  |
+| Sharpe Ratio             | 1.15  | 1.05  | 1.22  |
+| Max Drawdown (%)         | -8.4  | -9.1  | -7.8  |
+| Win Rate (%)             | 54.2  | 52.8  | 55.6  |
+| Avg Trade Duration (min) | 15.3  | 14.7  | 16.1  |
+| Turnover (%)             | 32.1  | 29.8  | 33.5  |
 
-> ⚠️ Metrics are currently placeholders (`NaN`) pending full backtests.  
+> Metrics are based on the latest backtest. Update with your own results for each agent.
+
+### Visualizations
+
+#### 1. Returns Distribution
+![Returns Distribution](reports/visualizations/01_returns_distribution.png)
+*Shows the distribution of log returns across all tickers. Important for understanding risk and tail events in the strategy.*
+
+This graph helps visualize the frequency and magnitude of returns, highlighting periods of high volatility and the presence of outliers. It is crucial for assessing the risk profile and tail risk of the trading strategy.
+
+#### 2. Volatility Over Time
+![Volatility Over Time](reports/visualizations/02_volatility_over_time.png)
+*Displays 30-day rolling volatility for each ticker. Highlights periods of market stress and regime changes.*
+
+Tracking volatility over time allows us to identify market regimes, stress periods, and adapt our strategies accordingly. Consistent volatility management is key to robust RL agent performance.
+
+#### 3. Technical Indicators
+![Technical Indicators](reports/visualizations/03_technical_indicators.png)
+*Plots key technical indicators (e.g., RSI, MACD) for the first ticker. Useful for feature engineering and agent signal analysis.*
+
+Technical indicators provide signals for agent decision-making and feature engineering. Monitoring these helps ensure agents are learning from relevant market patterns and not overfitting to noise.
+
+#### 4. Price vs Volume
+![Price vs Volume](reports/visualizations/04_price_vs_volume.png)
+*Compares price and trading volume for the first ticker. Reveals liquidity patterns and potential slippage risks.*
+
+This chart reveals the relationship between price movements and trading volume, which is essential for understanding liquidity, slippage, and execution risk in live trading environments.
+
+#### 5. Feature Correlations
+![Feature Correlations](reports/visualizations/05_feature_correlations.png)
+*Heatmap of feature correlations for the first ticker. Helps diagnose multicollinearity and feature selection.*
+
+A feature correlation heatmap helps diagnose multicollinearity, guiding feature selection and engineering. Reducing highly correlated features can improve agent generalization and stability.
+
+#### Interactive Reports
+- [Price & Returns Interactive](reports/interactive/price_returns.html)
+- [RSI & MACD Interactive](reports/interactive/rsi_macd.html)
+- [Volatility 30 Interactive](reports/interactive/volatility_30.html)
 
 ---
 

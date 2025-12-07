@@ -4,6 +4,7 @@ import logging
 from typing import Any, Dict, Optional
 
 import pandas as pd
+import numpy as np
 
 logger = logging.getLogger(__name__)
 
@@ -30,11 +31,8 @@ class FeatureEngineer:
             Series of returns.
         """
         if method == "log":
-            returns = (
-                data["close"]
-                .pct_change(window)
-                .apply(lambda x: x.log() if x > 0 else 0)
-            )
+            # log returns: log(close / close.shift(window))
+            returns = np.log(data["close"] / data["close"].shift(window))
         else:  # simple
             returns = data["close"].pct_change(window)
         return returns
@@ -116,7 +114,11 @@ class FeatureEngineer:
         Returns:
             DataFrame with original + computed features.
         """
-        feature_config = feature_config if feature_config is not None else self.config.get("features", {})
+        feature_config = (
+            feature_config
+            if feature_config is not None
+            else self.config.get("features", {})
+        )
         if feature_config is None:
             feature_config = {}
         result = data.copy()
