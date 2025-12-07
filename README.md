@@ -67,23 +67,24 @@ Key highlights:
 
 This graph helps visualize the frequency and magnitude of returns, highlighting periods of high volatility and the presence of outliers. It is crucial for assessing the risk profile and tail risk of the trading strategy.
 
-#### 2. Volatility Over Time
-![Volatility Over Time](reports/visualizations/02_volatility_over_time.png)
-*Displays 30-day rolling volatility for each ticker. Highlights periods of market stress and regime changes.*
 
-Tracking volatility over time allows us to identify market regimes, stress periods, and adapt our strategies accordingly. Consistent volatility management is key to robust RL agent performance.
+#### 2. Bollinger Bands
+![Bollinger Bands](reports/visualizations/bollinger_bands.png)
+*Shows price with Bollinger Bands (20, 2) for the first ticker. Useful for visualizing volatility and price extremes.*
 
-#### 3. Technical Indicators
-![Technical Indicators](reports/visualizations/03_technical_indicators.png)
-*Plots key technical indicators (e.g., RSI, MACD) for the first ticker. Useful for feature engineering and agent signal analysis.*
+Bollinger Bands help identify periods of high and low volatility, price breakouts, and potential reversal zones. They are calculated using pandas and numpy for robust, dependency-free analysis.
 
-Technical indicators provide signals for agent decision-making and feature engineering. Monitoring these helps ensure agents are learning from relevant market patterns and not overfitting to noise.
+#### 3. Average True Range (ATR)
+![ATR](reports/visualizations/atr.png)
+*Displays 14-day ATR for the first ticker. Highlights volatility and risk over time.*
 
-#### 4. Price vs Volume
-![Price vs Volume](reports/visualizations/04_price_vs_volume.png)
-*Compares price and trading volume for the first ticker. Reveals liquidity patterns and potential slippage risks.*
+ATR is a key metric for measuring market volatility and setting stop-loss levels. Calculated using pandas and numpy, it provides insight into risk and position sizing.
 
-This chart reveals the relationship between price movements and trading volume, which is essential for understanding liquidity, slippage, and execution risk in live trading environments.
+#### 4. Moving Averages
+![Moving Averages](reports/visualizations/moving_averages.png)
+*Plots 20-day and 50-day simple moving averages (SMA) for the first ticker. Useful for trend analysis and signal generation.*
+
+Moving averages smooth price data to reveal trends and support agent decision-making. Calculated with pandas, they are essential for feature engineering and strategy development.
 
 #### 5. Feature Correlations
 ![Feature Correlations](reports/visualizations/05_feature_correlations.png)
