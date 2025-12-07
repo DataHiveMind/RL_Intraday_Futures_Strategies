@@ -70,9 +70,16 @@ mlruns/
 runs/
 models/
 
-# Reports and visualizations
+
+# Reports
 reports/
-visualizations/
+
+# Allow visualizations for README usage, but ignore temp/intermediate files
+!visualizations/
+visualizations/*.tmp
+visualizations/*.temp
+visualizations/*.bak
+visualizations/*~
 
 # System files
 .DS_Store
